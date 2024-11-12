@@ -24,6 +24,13 @@ class Scheduler:
         if self.process[k]['tempo_chegada'] > self.process[k + 1]['tempo_chegada']:
             self.process[k], self.process[k + 1] = self.process[k + 1], self.process[k]
   
+  def put_list_process(self):
+    list_process = []
+    for process in self.process:
+      if process["tempo_chegada"] <= self.current_time and process["executado"] == False:
+        list_process.append(process)
+    return list_process
+  
   def calculate_avarage(self):
     arrival_time = 0
     return_time = 0
@@ -39,9 +46,6 @@ class Scheduler:
 
 
   def show_logs(self):
-    for i in self.process:
-      print(i)
-
     results = self.calculate_avarage()
 
     print(f"Tempo médio de chegada: {results['av_arrival_time']:.2f}")
