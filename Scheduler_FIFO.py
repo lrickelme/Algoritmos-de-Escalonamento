@@ -13,6 +13,7 @@ class Scheduler_FIFO(Scheduler):
           self.current_time += self.switch_time
           job.update({"tempo_retorno" : self.current_time + job.get("tempo_execucao")})
           job.update({"tempo_espera": self.current_time - job.get("tempo_chegada")})
+          job.update({"tempo_restante": job.get("tempo_restante") - job.get("tempo_execucao")})
           job.update({"executado" : True})
           self.current_time += job.get("tempo_execucao")
           print("Processo Executado:", job ,sep=" ")

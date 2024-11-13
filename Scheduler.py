@@ -11,12 +11,14 @@ class Scheduler:
 
   def create_process(self, number_process):
     for i in range(number_process):
+      execution_time = random.randint(1, 20)
       self.process.append({
           'id': i + 1,
           'tempo_chegada': random.randint(1, 20),
-          'tempo_execucao': random.randint(1, 20),
+          'tempo_execucao': execution_time,
           'tempo_retorno': 0,
           'tempo_espera': 0,
+          'tempo_restante': execution_time,
           'executado': False
       })
     for j in range(len(self.process) - 1):
