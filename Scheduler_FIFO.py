@@ -17,8 +17,10 @@ class Scheduler_FIFO(Scheduler):
           job.update({"executado" : True})
           self.current_time += job.get("tempo_execucao")
           print("Processo Executado:", job ,sep=" ")
-    
+
+process_number = int(input("Digite o número de processos que deseja executar: "))
+
 sc = Scheduler_FIFO()
-sc.create_process(5)
+sc.create_process(process_number)
 sc.FIFO()
 sc.show_logs()

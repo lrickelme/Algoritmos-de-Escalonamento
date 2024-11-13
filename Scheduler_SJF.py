@@ -28,7 +28,9 @@ class Scheduler_SJF(Scheduler):
           print("Processo Executado:", job ,sep=" ")
           self.SJF()
 
+process_number = int(input("Digite o número de processos que deseja executar: "))
+
 sc = Scheduler_SJF()
-sc.create_process(5)
+sc.create_process(process_number)
 sc.SJF()
 sc.show_logs()

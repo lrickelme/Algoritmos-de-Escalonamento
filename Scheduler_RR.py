@@ -31,7 +31,9 @@ class Scheduler_RR(Scheduler):
         else: 
           count += 1
 
+process_number = int(input("Digite o número de processos que deseja executar: "))
+
 sc = Scheduler_RR()
-sc.create_process(5)
+sc.create_process(process_number)
 sc.Round_Robin(4)
 sc.show_logs()
